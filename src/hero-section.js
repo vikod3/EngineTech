@@ -1,11 +1,14 @@
 const navItems = ["Company", "Technology", "Solutions", "Our Edge", "Our Team", "Investors", "News"];
 
 class EngineHero extends HTMLElement {
+  scrollFrame = 0;
+
   connectedCallback() {
     this.innerHTML = `
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" id="heroScroll" aria-labelledby="hero-title">
         <div class="hero__background" aria-hidden="true">
           <div class="hero__bg-layer hero__bg-layer--bottom"></div>
+          <div class="hero__stars"></div>
           <div class="hero__bg-layer hero__bg-layer--top"></div>
         </div>
 
@@ -25,11 +28,14 @@ class EngineHero extends HTMLElement {
         </header>
 
         <div class="hero__content">
-          <h1 id="hero-title" class="hero__title" aria-label="Powering the World">
+          <h1 id="hero-title" class="hero__title" aria-label="Powering the Ship">
             <span class="hero__title-line hero__title-line--one">Powering</span>
-            <span class="hero__title-line hero__title-line--two">the</span>
-            <span class="hero__title-line hero__title-line--three">World</span>
           </h1>
+
+          <div class="hero__title-row" aria-hidden="true">
+            <span class="hero__title-line hero__title-line--two">the</span>
+            <span class="hero__title-line hero__title-line--three">Ship</span>
+          </div>
 
           <div class="engine-visual" aria-hidden="true">
             <img class="engine-visual__asset" src="./assets/hero-engine.png" alt="" />
@@ -37,10 +43,74 @@ class EngineHero extends HTMLElement {
         </div>
 
         <p class="hero__caption">
-          Custom propulsion systems for aerospace missions. We engineer every power unit around payload, altitude, and thermal requirements. From prototype to flight-ready assembly, each engine is built for exact program constraints.
+          Precision engines for orbital-class vehicles.
         </p>
       </section>
     `;
+
+    this.initScrollHero();
+  }
+
+  initScrollHero() {
+    const hero = this.querySelector(".hero");
+    const bg = this.querySelector(".hero__background");
+    const title = this.querySelector(".hero__title");
+    const titleRow = this.querySelector(".hero__title-row");
+    const caption = this.querySelector(".hero__caption");
+    const object = this.querySelector(".engine-visual");
+    if (!hero || !bg || !title || !titleRow || !caption || !object) return;
+
+    const lerp = (a, b, progress) => a + (b - a) * progress;
+    const colors = {
+      start: {
+        top: [113, 145, 208],
+        mid: [170, 184, 213],
+        bottom: [236, 233, 230],
+      },
+      end: {
+        top: [240, 232, 220],
+        mid: [238, 229, 216],
+        bottom: [236, 226, 210],
+      },
+    };
+
+    const mixColor = (from, to, progress) => {
+      const r = Math.round(lerp(from[0], to[0], progress));
+      const g = Math.round(lerp(from[1], to[1], progress));
+      const b = Math.round(lerp(from[2], to[2], progress));
+      return `rgb(${r}, ${g}, ${b})`;
+    };
+
+    const animate = () => {
+      const rect = hero.getBoundingClientRect();
+      const scrollLength = Math.max(hero.offsetHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(Math.abs(rect.top) / scrollLength, 0), 1);
+      const fade = 1 - Math.max(0, (progress - 0.78) / 0.22);
+
+      bg.style.setProperty("--hero-top", mixColor(colors.start.top, colors.end.top, progress));
+      bg.style.setProperty("--hero-mid", mixColor(colors.start.mid, colors.end.mid, progress));
+      bg.style.setProperty("--hero-bottom", mixColor(colors.start.bottom, colors.end.bottom, progress));
+
+      title.style.setProperty("--scroll-y", `${(progress * -80).toFixed(2)}px`);
+      titleRow.style.setProperty("--scroll-y", `${(progress * -80).toFixed(2)}px`);
+      caption.style.setProperty("--scroll-y", `${(progress * -40).toFixed(2)}px`);
+      object.style.setProperty("--scroll-y", `${(progress * -180).toFixed(2)}px`);
+
+      title.style.opacity = fade;
+      titleRow.style.opacity = fade;
+      caption.style.opacity = fade;
+      object.style.opacity = fade;
+
+      hero.classList.toggle("is-past", rect.bottom <= 0);
+
+      this.scrollFrame = requestAnimationFrame(animate);
+    };
+
+    animate();
+  }
+
+  disconnectedCallback() {
+    cancelAnimationFrame(this.scrollFrame);
   }
 }
 
