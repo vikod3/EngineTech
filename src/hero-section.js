@@ -2,6 +2,7 @@ const navItems = ["Company", "Technology", "Solutions", "Our Edge", "Our Team", 
 
 class EngineHero extends HTMLElement {
   scrollFrame = 0;
+  lastScrollY = 0;
 
   connectedCallback() {
     this.innerHTML = `
@@ -85,16 +86,42 @@ class EngineHero extends HTMLElement {
       const rect = hero.getBoundingClientRect();
       const scrollLength = Math.max(hero.offsetHeight - window.innerHeight, 1);
       const progress = Math.min(Math.max(Math.abs(rect.top) / scrollLength, 0), 1);
-      const fade = 1 - Math.max(0, (progress - 0.78) / 0.22);
+      const scrollProgress = Math.max(Math.abs(rect.top) / scrollLength, 0);
+      
+      const scrollY = Math.abs(rect.top);
+      const fadeStart = 0.9 * window.innerHeight;
+      const fadeEnd = 1.35 * window.innerHeight;
+      let fade = 1;
+      if (scrollY > fadeStart) {
+        fade = 1 - Math.min((scrollY - fadeStart) / (fadeEnd - fadeStart), 1);
+      }
+
+      // Scroll direction and header states
+      const nav = this.querySelector(".hero__nav");
+      if (nav) {
+        if (scrollY === 0) {
+          nav.classList.add("nav--at-top");
+          nav.classList.remove("nav--scroll-down", "nav--scroll-up");
+        } else if (scrollY > this.lastScrollY) {
+          // Scrolling down
+          nav.classList.add("nav--scroll-down");
+          nav.classList.remove("nav--at-top", "nav--scroll-up");
+        } else if (scrollY < this.lastScrollY) {
+          // Scrolling up
+          nav.classList.add("nav--scroll-up");
+          nav.classList.remove("nav--at-top", "nav--scroll-down");
+        }
+      }
+      this.lastScrollY = scrollY;
 
       bg.style.setProperty("--hero-top", mixColor(colors.start.top, colors.end.top, progress));
       bg.style.setProperty("--hero-mid", mixColor(colors.start.mid, colors.end.mid, progress));
       bg.style.setProperty("--hero-bottom", mixColor(colors.start.bottom, colors.end.bottom, progress));
 
-      title.style.setProperty("--scroll-y", `${(progress * -80).toFixed(2)}px`);
-      titleRow.style.setProperty("--scroll-y", `${(progress * -80).toFixed(2)}px`);
-      caption.style.setProperty("--scroll-y", `${(progress * -40).toFixed(2)}px`);
-      object.style.setProperty("--scroll-y", `${(progress * -180).toFixed(2)}px`);
+      title.style.setProperty("--scroll-y", `${(scrollProgress * -120).toFixed(2)}px`);
+      titleRow.style.setProperty("--scroll-y", `${(scrollProgress * -120).toFixed(2)}px`);
+      caption.style.setProperty("--scroll-y", `${(scrollProgress * -60).toFixed(2)}px`);
+      object.style.setProperty("--scroll-y", `${(scrollProgress * -250).toFixed(2)}px`);
 
       title.style.opacity = fade;
       titleRow.style.opacity = fade;

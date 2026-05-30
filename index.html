@@ -10,10 +10,49 @@
     <title>EngineTech | Custom Aerospace Engines</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
   </head>
   <body>
     <main>
       <engine-hero></engine-hero>
+
+      <section class="mission" id="company" aria-labelledby="mission-title">
+        <div class="mission__inner">
+          <p class="mission__eyebrow">The Name Reflects Our Mission</p>
+
+          <div class="mission__statement">
+            <h2 id="mission-title">
+              Demand for resilient propulsion is rising as aerospace programs move faster, fly farther,
+              and require engines built with absolute precision.
+            </h2>
+
+            <a class="mission__button" href="#technology">
+              <span class="mission__button-icon" aria-hidden="true">
+                <i class="ph ph-arrow-elbow-down-right"></i>
+              </span>
+              <span>Discover Our Story</span>
+            </a>
+          </div>
+
+          <p class="mission__support">
+            Our name, EngineTech, reflects our commitment to moving advanced aircraft and spacecraft from
+            ambitious concepts to dependable flight-ready power.
+          </p>
+
+          <div class="mission__media" aria-label="EngineTech propulsion systems in motion">
+            <video
+              class="mission__video"
+              autoplay
+              muted
+              loop
+              playsinline
+              poster="./assets/hero-engine.png"
+            >
+              <source src="https://assets.mixkit.co/videos/6853/6853-720.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script type="module" src="./src/hero-section.js"></script>
