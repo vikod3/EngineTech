@@ -16,7 +16,7 @@
     <main>
       <engine-hero></engine-hero>
 
-      <section class="mission" id="company" aria-labelledby="mission-title">
+      <section class="mission" id="company" aria-labelledby="mission-title" data-section="mission">
         <div class="mission__inner">
           <p class="mission__eyebrow">The Name Reflects Our Mission</p>
 
@@ -39,22 +39,266 @@
             ambitious concepts to dependable flight-ready power.
           </p>
 
-          <div class="mission__media" aria-label="EngineTech propulsion systems in motion">
-            <video
-              class="mission__video"
-              autoplay
-              muted
-              loop
-              playsinline
-              poster="./assets/hero-engine.png"
-            >
-              <source src="https://assets.mixkit.co/videos/6853/6853-720.mp4" type="video/mp4" />
-            </video>
+          <div class="mission__media" aria-label="EngineTech propulsion systems in motion"></div>
+        </div>
+      </section>
+
+      <section class="showcase" id="technology" aria-label="Technology highlights"></section>
+
+      <section class="capabilities" id="solutions" aria-labelledby="capabilities-title">
+        <div class="capabilities__header">
+          <div class="capabilities__intro">
+            <h2 id="capabilities-title">Propulsion programs need a partner that can move from concept to certified hardware.</h2>
+            <p>
+              EngineTech combines precision manufacturing, hot-fire validation, materials engineering, and mission support
+              for aircraft and spacecraft programs that cannot afford uncertainty.
+            </p>
           </div>
+
+          <a class="capabilities__button" href="#contact">
+            <span>Start a Program</span>
+            <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="capabilities__grid" aria-label="EngineTech capabilities and proof points">
+          <article class="cap-card cap-card--tall cap-card--media">
+            <video class="cap-card__video" autoplay muted loop playsinline>
+              <source src="https://assets.mixkit.co/videos/45229/45229-720.mp4" type="video/mp4" />
+            </video>
+            <div class="cap-card__shade" aria-hidden="true"></div>
+
+            <div class="cap-card__label">
+              <span>Program Background</span>
+            </div>
+
+            <div class="cap-card__timeline">
+              <div><span>2026</span><b aria-hidden="true"></b><strong>Reusable upper-stage demonstrator</strong><em>Thermal qualification</em></div>
+              <div><span>2025</span><b aria-hidden="true"></b><strong>Hybrid-electric aircraft platform</strong><em>Combustor redesign</em></div>
+              <div><span>2024</span><b aria-hidden="true"></b><strong>Orbital transfer vehicle</strong><em>Flight article delivery</em></div>
+            </div>
+          </article>
+
+          <div class="capabilities__stack">
+            <article class="cap-card cap-card--quote">
+              <div class="cap-card__label cap-card__label--left">
+                <span>Mission Voice</span>
+              </div>
+              <blockquote>
+                "EngineTech brought the discipline we needed: clear design reviews, repeatable test data, and hardware
+                that arrived ready for integration."
+              </blockquote>
+              <p><strong>Dr. Lena Morris</strong> Propulsion Lead, Orbital Systems Group</p>
+            </article>
+
+            <article class="cap-card cap-card--metric cap-card--video-panel">
+              <video class="cap-card__video" autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/23211/23211-720.mp4" type="video/mp4" />
+              </video>
+              <div class="cap-card__shade" aria-hidden="true"></div>
+              <div class="cap-card__metric">
+                <strong>2K</strong>
+                <span>Highly Qualified Engineers</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="capabilities__stack capabilities__stack--systems">
+            <article class="cap-card cap-card--tools cap-card--tools-media cap-card--video-panel">
+              <video class="cap-card__video" autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/23843/23843-720.mp4" type="video/mp4" />
+              </video>
+              <div class="cap-card__shade" aria-hidden="true"></div>
+
+              <div class="cap-card__label">
+                <span>Core Systems</span>
+              </div>
+
+              <div class="tool-marquee" aria-hidden="true">
+                <div class="tool-marquee__row tool-marquee__row--left">
+                  <span><i class="ph ph-gear-six"></i> Turbopumps</span>
+                  <span><i class="ph ph-fire"></i> Hot-fire</span>
+                  <span><i class="ph ph-gauge"></i> Telemetry</span>
+                  <span><i class="ph ph-atom"></i> Alloys</span>
+                  <span><i class="ph ph-wrench"></i> Assembly</span>
+                  <span><i class="ph ph-gear-six"></i> Turbopumps</span>
+                  <span><i class="ph ph-fire"></i> Hot-fire</span>
+                  <span><i class="ph ph-gauge"></i> Telemetry</span>
+                  <span><i class="ph ph-atom"></i> Alloys</span>
+                  <span><i class="ph ph-wrench"></i> Assembly</span>
+                </div>
+                <div class="tool-marquee__row tool-marquee__row--right">
+                  <span><i class="ph ph-cpu"></i> Controls</span>
+                  <span><i class="ph ph-wave-sine"></i> Vibration</span>
+                  <span><i class="ph ph-shield-check"></i> Certification</span>
+                  <span><i class="ph ph-rocket-launch"></i> Launch</span>
+                  <span><i class="ph ph-chart-line-up"></i> Analysis</span>
+                  <span><i class="ph ph-cpu"></i> Controls</span>
+                  <span><i class="ph ph-wave-sine"></i> Vibration</span>
+                  <span><i class="ph ph-shield-check"></i> Certification</span>
+                  <span><i class="ph ph-rocket-launch"></i> Launch</span>
+                  <span><i class="ph ph-chart-line-up"></i> Analysis</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="cap-card cap-card--contact" id="contact">
+              <div>
+                <div class="cap-card__label cap-card__label--left">
+                  <span>Reach Engineering</span>
+                </div>
+                <a href="mailto:programs@enginetech.com">programs@enginetech.com</a>
+                <p>+1 415 018 4270</p>
+              </div>
+              <a class="cap-card__icon-button" href="mailto:programs@enginetech.com" aria-label="Email EngineTech">
+                <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats" id="our-edge" aria-labelledby="stats-title">
+        <div class="stats__header">
+          <div class="stats__title-wrap">
+            <h2 id="stats-title">Unmatched propulsion data across every flight-critical layer.</h2>
+          </div>
+          <p class="stats__summary" data-stats-summary>
+            EngineTech maps thermal limits, production capacity, upstream readiness, and hydrogen pathways into
+            clear decisions for ambitious aerospace programs.
+          </p>
+        </div>
+
+        <div class="stats__tabs" role="tablist" aria-label="Statistics categories">
+          <button class="stats__tab is-active" type="button" role="tab" aria-selected="true" data-stats-tab="cities">
+            Cities & Infrastructure
+          </button>
+          <button class="stats__tab" type="button" role="tab" aria-selected="false" data-stats-tab="materials">
+            Materials & Manufacturing
+          </button>
+          <button class="stats__tab" type="button" role="tab" aria-selected="false" data-stats-tab="fuels">
+            Fuels & Upstream
+          </button>
+          <button class="stats__tab" type="button" role="tab" aria-selected="false" data-stats-tab="hydrogen">
+            H2 Hydrogen
+          </button>
+        </div>
+
+        <div class="stats__chart" data-stats-chart aria-live="polite"></div>
+      </section>
+
+      <section class="video-stories" id="our-team" aria-labelledby="video-stories-title">
+        <div class="video-stories__header">
+          <h2 id="video-stories-title">Program stories from the people building flight-ready power.</h2>
+          <p>
+            Short field notes from integration leads, test engineers, and manufacturing teams moving advanced
+            propulsion systems from requirement reviews to repeatable flight hardware.
+          </p>
+        </div>
+
+        <div class="video-stories__rail" aria-label="EngineTech video previews">
+          <article class="story-card">
+            <img class="story-card__media" src="./assets/CleanShot 2026-05-31 at 14.21.32@2x.png" alt="Integration lead on an aerospace manufacturing floor" />
+            <div class="story-card__content">
+              <p>Integration Review</p>
+              <h3>How a reusable upper-stage program moved from thermal risk to stable qualification.</h3>
+              <span>Reusable systems · 04:20</span>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img class="story-card__media" src="./assets/CleanShot 2026-05-31 at 14.21.51@2x.png" alt="Propulsion engineer reviewing engine design data" />
+            <div class="story-card__content">
+              <p>Hot-Fire Campaign</p>
+              <h3>Inside the test cell where telemetry, vibration, and injector response converge.</h3>
+              <span>Validation · 03:45</span>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img class="story-card__media" src="./assets/CleanShot 2026-05-31 at 14.22.53@2x.png" alt="Materials specialist in a propulsion laboratory" />
+            <div class="story-card__content">
+              <p>Manufacturing Floor</p>
+              <h3>Why sub-micron inspection changes the way aerospace teams plan reliability.</h3>
+              <span>Precision build · 05:10</span>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img class="story-card__media" src="./assets/CleanShot 2026-05-31 at 14.23.06@2x.png" alt="Mission systems lead inside a bright engineering facility" />
+            <div class="story-card__content">
+              <p>Hydrogen Pathway</p>
+              <h3>Designing feed systems and ignition envelopes for hydrogen-ready propulsion.</h3>
+              <span>H2 systems · 04:55</span>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img class="story-card__media" src="./assets/CleanShot 2026-05-31 at 14.23.19@2x.png" alt="Senior aerospace engineer in front of launch analysis displays" />
+            <div class="story-card__content">
+              <p>Mission Support</p>
+              <h3>The operational cadence behind launch-window support and post-test analysis.</h3>
+              <span>Field readiness · 03:30</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="video-stories__footer" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>05 / 05</strong>
         </div>
       </section>
     </main>
 
+    <footer class="site-footer">
+      <div class="footer-dots" aria-hidden="true">
+        <div class="footer-dots__line"></div>
+      </div>
+
+      <div class="site-footer__inner">
+        <div class="site-footer__top">
+          <h2>Proven Advanced Propulsion Technology</h2>
+
+          <nav class="site-footer__nav" aria-label="Footer navigation">
+            <a href="#company">Company</a>
+            <a href="#technology">Technology</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#our-edge">Our Edge</a>
+            <a href="#investors">Investors</a>
+          </nav>
+
+          <nav class="site-footer__nav" aria-label="Company links">
+            <a href="#our-team">Our Team</a>
+            <a href="#news">News</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact Us</a>
+          </nav>
+
+          <nav class="site-footer__nav" aria-label="Social links">
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://x.com" target="_blank" rel="noreferrer">Follow Us on X</a>
+          </nav>
+        </div>
+
+        <div class="site-footer__brand-row">
+          <a class="site-footer__brand" href="/" aria-label="EngineTech home">
+            <span class="site-footer__mark" aria-hidden="true"></span>
+            <span>EngineTech</span>
+          </a>
+        </div>
+
+        <div class="site-footer__legal">
+          <p>© 2026 EngineTech. All rights reserved.</p>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Use</a>
+        </div>
+      </div>
+    </footer>
+
     <script type="module" src="./src/hero-section.js"></script>
+    <script type="module" src="./src/showcase-section.js"></script>
+    <script type="module" src="./src/stats-section.js"></script>
   </body>
 </html>
