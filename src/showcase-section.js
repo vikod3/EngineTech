@@ -55,7 +55,7 @@ class ShowcaseSection {
       <video
         class="showcase-film__video"
         autoplay muted loop playsinline
-        poster="/assets/hero-engine.png"
+        poster="https://res.cloudinary.com/dsdhxhhqh/image/upload/v1780405513/hero-engine_isebcf.png"
       >
         <source src="https://assets.mixkit.co/videos/6853/6853-720.mp4" type="video/mp4" />
       </video>

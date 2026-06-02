@@ -39,7 +39,7 @@ class EngineHero extends HTMLElement {
           </div>
 
           <div class="engine-visual" aria-hidden="true">
-            <img class="engine-visual__asset" src="/assets/hero-engine.png" alt="" />
+            <img class="engine-visual__asset" src="https://res.cloudinary.com/dsdhxhhqh/image/upload/v1780405513/hero-engine_isebcf.png" alt="" />
           </div>
         </div>
 
